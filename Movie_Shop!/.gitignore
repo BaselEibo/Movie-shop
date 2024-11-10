@@ -1,0 +1,15 @@
+﻿# Ignore build output folders
+bin/
+obj/
+
+# Ignore Visual Studio temporary files
+.vs/
+
+# Ignore user-specific files
+*.user
+*.suo
+
+# Ignore files related to debugging and deployment
+.dbmdl
+.bak
+*.log
