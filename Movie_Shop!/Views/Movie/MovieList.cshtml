@@ -1,0 +1,26 @@
+﻿@model List<Movie_Shop_.Models.Movie>
+
+@{
+    ViewData["Title"] = "List of all Movies";
+}
+
+<a asp-action="Create" class="btn btn-success btn-lg ">Create</a>
+ @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">@TempData["Message"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+<div class="container mt-4">
+    <h2 class="mb-4">List of Movies</h2>
+    <div class="row">
+        @foreach (var movie in Model)
+        {
+                <div class="col-md-3 d-flex align-items-stretch">
+                <partial name="_MovieCard" model="@movie" />
+            </div>
+        }
+    </div>
+</div>
