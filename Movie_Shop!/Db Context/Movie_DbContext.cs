@@ -12,8 +12,17 @@ namespace Movie_Shop_.Db_Context
         public DbSet<Customer> Customers { get; set; }
         public DbSet<OrderRow> OrderRows { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Movie>()
+                .Property(m => m.Price)
+                .HasPrecision(18, 2);
 
-       
+            modelBuilder.Entity<OrderRow>()
+                .Property(o => o.Price)
+                .HasPrecision(18, 2);
+        }
+
 
     }
 }
