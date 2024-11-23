@@ -1,9 +1,12 @@
-﻿using Movie_Shop_.Models;
+
+using Movie_Shop_.Models;
+
 
 namespace Movie_Shop_.Repositorey
 {
     public interface IMovieServices
     {
+
         public List<Movie> GetAllMovies();
 
         public bool CreateMovie(Movie movie);
