@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Movie_Shop_.Models;
 using Movie_Shop_.Repositorey;
@@ -7,6 +8,7 @@ namespace Movie_Shop_.Controllers
 {
     public class MovieController : Controller
     {
+
         private readonly OmdbService _omdbService;
 
         public MovieController( OmdbService omdbService)
