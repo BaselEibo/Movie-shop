@@ -20,3 +20,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+.text-danger {
+    font-size: 0.875rem; /* Slightly smaller for subtlety */
+    font-weight: bold; /* Make it stand out */
+}
+
+.custom-img {
+    height: 275px;
+    object-fit: cover;
+    width: 100%;
+}
