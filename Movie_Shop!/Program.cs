@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+
 // Add services to the container.
 // Configure Entity Framework to use SQL Server
 builder.Services.AddDbContext<Movie_DbContext>(options =>
@@ -34,6 +35,7 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true; // Session cookie accessible only via HTTP
     options.Cookie.IsEssential = true; // Essential for session usage
 });
+
 
 var app = builder.Build();
 
