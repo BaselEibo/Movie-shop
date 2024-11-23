@@ -1,0 +1,33 @@
+﻿@model Movie_Shop_.Models.Movie
+
+<div class="card mb-4 w-100">
+    <div class="card-header">
+        <h5 class="card-title text-truncate"style="min-height: 40px;">@Model.Title</h5>
+    </div>
+    <img src="@Model.ImageUrl" class="card-img-top img-fluid custom-img" alt="Movie Image" />
+    <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">Directed by : @Model.Director</h6>
+
+        <p class="card-text">
+            Release Year: @Model.ReleaseYear <br />
+            Price: $@Model.Price
+        </p>
+
+        <div class="d-flex justify-content-between">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success btn-sm">Edit</a>
+
+            <form asp-action="AddToCart" asp-route-id="@Model.Id" method="post" class="d-inline">
+                <button type="submit" class="btn btn-primary btn-sm">
+                    AddToCart
+                </button>
+            </form>
+
+            <form asp-action="Delete" asp-route-id="@Model.Id" method="post" class="d-inline">
+                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this movie?');" >
+                    Delete
+                </button>
+            </form>
+        </div>
+    </div> 
+
+</div>
