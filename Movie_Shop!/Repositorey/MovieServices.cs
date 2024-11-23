@@ -1,10 +1,13 @@
-﻿using Movie_Shop_.Db_Context;
+
+using Movie_Shop_.Db_Context;
+
 using Movie_Shop_.Models;
 
 namespace Movie_Shop_.Repositorey
 {
     public class MovieServices : IMovieServices
     {
+
         private readonly Movie_DbContext _db;
         private readonly ILogger<MovieServices> _logger;
 
@@ -124,5 +127,6 @@ namespace Movie_Shop_.Repositorey
                 return false;
             }
         }
+
     }
 }
