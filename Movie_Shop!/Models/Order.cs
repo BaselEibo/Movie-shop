@@ -17,6 +17,8 @@ namespace Movie_Shop_.Models
         [Display(Name = "Order Date")]
         public DateTime OrderDate { get; set; }
 
+        public decimal TotalPrice { get; set; }
+
         public Customer? Customers { get; set; }
 
         public List<OrderRow> orderRows { get; set; } = new List<OrderRow>();
