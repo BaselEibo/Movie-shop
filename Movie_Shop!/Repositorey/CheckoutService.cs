@@ -8,11 +8,13 @@ namespace Movie_Shop_.Repositorey
     public class CheckoutService : ICheckoutService
     {
         private readonly Movie_DbContext _db;
+        private readonly IShoppingCartService _shopCartService;
         private readonly ILogger<CheckoutService> _logger;
-        public CheckoutService(Movie_DbContext movie_DbContext , ILogger<CheckoutService> logger)
+        public CheckoutService(Movie_DbContext movie_DbContext , ILogger<CheckoutService> logger , IShoppingCartService shoppingCartService)
         {
             _db = movie_DbContext;
             _logger = logger;
+            _shopCartService = shoppingCartService;
         }
 
 
@@ -52,34 +54,28 @@ namespace Movie_Shop_.Repositorey
             {
                 return false;
             }
-            var theCustomer = GetOrCreateCustomer(customerDetails);
+
+            var Customer = GetOrCreateCustomer(customerDetails);
+            var totalPrice = _shopCartService.GetCartTotal();
 
             var order = new Order
             {
-                CustomerId = theCustomer.Id,
+                CustomerId = Customer.Id,
                 OrderDate = DateTime.Now,
-                TotalPrice = cart.TotalPrice,
+                TotalPrice = totalPrice,
                 orderRows = cart.Select(item => new OrderRow
                 {
                     MovieId = item.MovieId,
-                    Quantity= item.Quantity,
+                    Quantity = item.Quantity,
                     Price = item.Price
                 }).ToList()
-            };
 
-            try
-            {
-                _db.Orders.Add(order);
-                _db.SaveChanges();
+            };
+            _db.Orders.Add(order);
+            _db.SaveChanges();
 
                 return true;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError ($"Error creating order for Customer ID: {theCustomer.Id}. Error: {ex.Message}");
-                return false;
-            }
-           
+        
         }
 
     }
