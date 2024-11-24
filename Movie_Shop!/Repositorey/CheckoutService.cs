@@ -8,11 +8,13 @@ namespace Movie_Shop_.Repositorey
     public class CheckoutService : ICheckoutService
     {
         private readonly Movie_DbContext _db;
+        private readonly IShoppingCartService _shopCartService;
         private readonly ILogger<CheckoutService> _logger;
-        public CheckoutService(Movie_DbContext movie_DbContext , ILogger<CheckoutService> logger)
+        public CheckoutService(Movie_DbContext movie_DbContext , ILogger<CheckoutService> logger , IShoppingCartService shoppingCartService)
         {
             _db = movie_DbContext;
             _logger = logger;
+            _shopCartService = shoppingCartService;
         }
 
 
