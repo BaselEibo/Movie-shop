@@ -21,7 +21,7 @@ namespace Movie_Shop_.Controllers
         }
 
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> ImportMovies()
         {
             var movieTitles = new List<string>
