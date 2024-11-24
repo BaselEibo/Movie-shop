@@ -21,7 +21,7 @@ namespace Movie_Shop_.Repositorey
             try
             {
                 // Build the API URL
-                var url = $"{BaseUrl}?apikey={ApiKey}&t={Uri.EscapeDataString(title)}";
+                var url = $"{BaseUrl}?apikey={ApiKey}&t={Uri.EscapeDataString(title)}"; 
 
                 // Make an HTTP GET request
                 var response = await _httpClient.GetStringAsync(url);
