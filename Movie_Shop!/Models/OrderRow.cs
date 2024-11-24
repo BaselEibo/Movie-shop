@@ -11,6 +11,11 @@ namespace Movie_Shop_.Models
         [Range(0, (double)decimal.MaxValue)]
         public decimal Price { get; set; }
 
+        [Required]
+        [Range(1, 100, ErrorMessage = "Quantity must be between 1 and 100.")]
+        public int Quantity { get; set; }
+
+
         [Required(ErrorMessage = "Order Id is required.")]
         [ForeignKey("Order")]
         public int OrderId { get; set; }

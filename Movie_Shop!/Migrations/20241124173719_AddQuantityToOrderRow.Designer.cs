@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Movie_Shop_.Db_Context;
 
@@ -11,9 +12,11 @@ using Movie_Shop_.Db_Context;
 namespace Movie_Shop_.Migrations
 {
     [DbContext(typeof(Movie_DbContext))]
-    partial class Movie_DbContextModelSnapshot : ModelSnapshot
+    [Migration("20241124173719_AddQuantityToOrderRow")]
+    partial class AddQuantityToOrderRow
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
