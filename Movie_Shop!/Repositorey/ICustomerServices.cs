@@ -4,14 +4,14 @@ namespace Movie_Shop_.Repositorey
 {
     public interface ICustomerServices
     {
-        public List<Order> GetOrdersByCustomer(int CustomerId);
-        public List<Customer> GetAllCustomer();
+        List<Order> GetOrdersByCustomer(int CustomerId);
+        List<Customer> GetAllCustomer();
         Customer GetCustmerByEmail(string EmailAddress);
         
-        public bool Create(Customer customer);
+        bool Create(Customer customer);
         
-        public bool Update(Customer customer);
+        bool Update(Customer customer);
 
-        public bool DeleteCustomer(int id);
+        bool DeleteCustomer(int id);
     }
 }
