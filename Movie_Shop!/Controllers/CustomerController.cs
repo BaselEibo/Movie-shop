@@ -68,7 +68,7 @@ namespace Movie_Shop_.Controllers
                 if (isEdited)
                 {
                     TempData["Message"] = "Updait successfull!";
-                    return RedirectToAction("MovieList","Movie");
+                    return RedirectToAction("Index");
                 }
                 else
                 {
