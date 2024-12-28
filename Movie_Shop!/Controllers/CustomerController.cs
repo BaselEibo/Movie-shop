@@ -16,7 +16,8 @@ namespace Movie_Shop_.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var AllCustomer =  _services.GetAllCustomer();
+            return View( AllCustomer );
         }
 
 
@@ -102,6 +103,28 @@ namespace Movie_Shop_.Controllers
             }
             return RedirectToAction("MovieList","Movie");
         }
+
+        public IActionResult OrdersByCustomer(int id)
+        {
+            try
+            {
+            var orders = _services.GetOrdersByCustomer(id);
+                if (orders == null || orders.Count == 0)
+                {
+                    ViewBag.Message = "No orders found for this customer";
+                    return View (new List<Order>());
+                }
+                return View  (orders);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "An error occurred while retrieving orders. Please try again later.";
+                return View(new List<Order>()); 
+            }
+
+        }
+
+       
 
 
     }

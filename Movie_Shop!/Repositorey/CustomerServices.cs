@@ -80,5 +80,16 @@ namespace Movie_Shop_.Repositorey
             _db.SaveChanges();
             return true;
         }
+
+        public List<Order> GetOrdersByCustomer(int CustomerId)
+        {
+           var orders = _db.Orders.Where(o => o.CustomerId==CustomerId).ToList();
+            return orders;
+        }
+
+        public List<Customer> GetAllCustomer()
+        {
+            return _db.Customers.ToList();
+        }
     }
 }

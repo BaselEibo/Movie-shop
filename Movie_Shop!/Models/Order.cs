@@ -11,6 +11,7 @@ namespace Movie_Shop_.Models
         [Required(ErrorMessage = "Customer Id is required.")]
         [ForeignKey("Customer")]
         [Display(Name = "Customer Id")]
+
         public int CustomerId { get; set; }
 
         [Required(ErrorMessage = "Order Date is required.")]

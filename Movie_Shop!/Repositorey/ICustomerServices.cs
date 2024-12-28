@@ -4,6 +4,8 @@ namespace Movie_Shop_.Repositorey
 {
     public interface ICustomerServices
     {
+        public List<Order> GetOrdersByCustomer(int CustomerId);
+        public List<Customer> GetAllCustomer();
         Customer GetCustmerByEmail(string EmailAddress);
         
         public bool Create(Customer customer);
